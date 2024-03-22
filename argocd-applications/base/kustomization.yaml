@@ -1,5 +1,5 @@
 resources:
-  # - grafana.yaml
+  - grafana.yaml
   - kube-prometheus.yaml
 
 commonLabels:
