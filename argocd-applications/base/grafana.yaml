@@ -24,38 +24,41 @@ spec:
         helm:
           releaseName: 'stable'
           version: v3
-          # values: |
-          #   grafana:
-          #     envFrom:
-          #       - secretRef:
-          #           name: grafana-credentials
-          #     config:
-          #       auth.azuread:
-          #         # name: Azure AD
-          #         enabled: true
-          #         allow_sign_up: true
-          #         # auto_login: false
-          #         client_id: GF_AUTH_AZUREAD_CLIENT_ID
-          #         client_secret: GF_AUTH_AZUREAD_CLIENT_SECRET
-          #         scopes: openid email profile
-          #         auth_url: https://login.microsoftonline.com/0ac0523f-15a2-4a2a-9bb7-bdf6cf8f98af/oauth2/v2.0/authorize
-          #         token_url: https://login.microsoftonline.com/0ac0523f-15a2-4a2a-9bb7-bdf6cf8f98af/oauth2/v2.0/token
-          #         allowed_domains: nadeeshachathumal.online chathumal1994outlook.onmicrosoft.com
-          #         # allowed_organizations: 0ac0523f-15a2-4a2a-9bb7-bdf6cf8f98af
-          #         # role_attribute_strict: false
-          #         # allow_assign_grafana_admin: false
-          #         # skip_org_role_sync: false
-          #         # use_pkce: true
-          #     # ingress:
-          #     #   enabled: false
-          #     #   ingressClassName: nginx
-          #     #   hostname: "grafana.chathumal.com"
-          #     #   pathType: ImplementationSpecific
-          #     #   tls: true
-          #     #   tlsSecret: grafana-cert
-          #     #   annotations:
-          #     #     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-          #     #     nginx.ingress.kubernetes.io/ssl-passthrough: "true" 
+          values: |
+
+            grafana:
+              service:
+                type: "LoadBalancer"  
+              # envFrom:
+              #   - secretRef:
+              #       name: grafana-credentials
+              # config:
+              #   auth.azuread:
+              #     # name: Azure AD
+              #     enabled: true
+              #     allow_sign_up: true
+              #     # auto_login: false
+              #     client_id: GF_AUTH_AZUREAD_CLIENT_ID
+              #     client_secret: GF_AUTH_AZUREAD_CLIENT_SECRET
+              #     scopes: openid email profile
+              #     auth_url: https://login.microsoftonline.com/0ac0523f-15a2-4a2a-9bb7-bdf6cf8f98af/oauth2/v2.0/authorize
+              #     token_url: https://login.microsoftonline.com/0ac0523f-15a2-4a2a-9bb7-bdf6cf8f98af/oauth2/v2.0/token
+              #     allowed_domains: nadeeshachathumal.online chathumal1994outlook.onmicrosoft.com
+              #     # allowed_organizations: 0ac0523f-15a2-4a2a-9bb7-bdf6cf8f98af
+              #     # role_attribute_strict: false
+              #     # allow_assign_grafana_admin: false
+              #     # skip_org_role_sync: false
+              #     # use_pkce: true
+              # # ingress:
+              # #   enabled: false
+              # #   ingressClassName: nginx
+              # #   hostname: "grafana.chathumal.com"
+              # #   pathType: ImplementationSpecific
+              # #   tls: true
+              # #   tlsSecret: grafana-cert
+              # #   annotations:
+              # #     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+              # #     nginx.ingress.kubernetes.io/ssl-passthrough: "true" 
 
       destination:
         server: '{{url}}'
