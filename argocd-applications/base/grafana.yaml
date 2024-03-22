@@ -24,11 +24,11 @@ spec:
         helm:
           releaseName: 'stable'
           version: v3
-          values: |
+          # values: |
+          #   grafana:
+          #     service:
+          #       type: "LoadBalancer"
 
-            grafana:
-              service:
-                type: "LoadBalancer"  
               # envFrom:
               #   - secretRef:
               #       name: grafana-credentials
