@@ -6,7 +6,7 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: minikube
+      - cluster: in-cluster
         url: https://kubernetes.default.svc
 
 
