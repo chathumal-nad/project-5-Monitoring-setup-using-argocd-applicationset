@@ -18,7 +18,7 @@ spec:
     spec:
       source:
         repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 2.9.3
+        targetRevision: '*'
         chart: grafana-operator
 
         helm:
